@@ -4,8 +4,8 @@ $myemail = 'piyushj572@gmail.com';
 
 $name = $_POST['name'];
 $email_address = $_POST['email'];
-$phone_number = $_POST['phone'];
-$message = $_POST['message'];
+$phone_number = $_POST['number'];
+$message = $_POST['comments'];
 
 if( empty($errors))
 {
