@@ -1,21 +1,3 @@
-<?php
-
-if($_POST["submit"]) {
-    $recipient="piyushj572@gmail.com";
-    $subject="Form to email message";
-    $sender=$_POST["name"];
-    $senderEmail=$_POST["email"];
-    $phone_number = $_POST['number'];
-    $message=$_POST["comments"];
-
-    $mailBody="Name: $sender\nEmail: $senderEmail\nPhone Number: $phone_number\n\n$message";
-
-    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
-
-    echo '<script>alert("Thank You! Your Form is Submitted Successfully.")</script>';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -398,8 +380,6 @@ if($_POST["submit"]) {
      <div class="container">
          <div class="row">
              <div class="col-lg-8 col-md-8 col-10 offset-lg-2 offset-md-2 offset-1">
-
-                <?=$thankYou ?>
 
                  <form action="email.php" method="post">
                      <div class="form-group">
