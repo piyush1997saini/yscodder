@@ -1,3 +1,20 @@
+<?php
+
+if($_POST["submit"]) {
+    $recipient="piyushj572@gmail.com";
+    $subject="Form to email message";
+    $sender=$_POST["name"];
+    $senderEmail=$_POST["email"];
+    $phone_number = $_POST['number'];
+    $message=$_POST["comments"];
+
+    $mailBody="Name: $sender\nEmail: $senderEmail\nPhone Number: $phone_number\n\n$message";
+
+    mail($recipient, $subject, $mailBody, "From: $sender <$senderEmail>");
+
+    $thankYou="<p>Thank you! Your message has been sent.</p>";
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -380,6 +397,9 @@
      <div class="container">
          <div class="row">
              <div class="col-lg-8 col-md-8 col-10 offset-lg-2 offset-md-2 offset-1">
+
+                <?=$thankYou ?>
+
                  <form action="email.php" method="post">
                      <div class="form-group">
                          <input type="text" class="form-control" name="name" id="name" placeholder="Enter Your Name" required autocomplete="off">
@@ -394,7 +414,7 @@
                          <textarea class="form-control" name="comments" id="comments" rows="4" placeholder="Enter Your Message"></textarea>
                      </div>
                      <div class="d-flex justify-content-center form-button">
-                         <button type="submit" class="btn btn-primary">Submit</button>
+                         <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                      </div>
                  </form>
              </div>
