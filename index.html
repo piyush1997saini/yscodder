@@ -472,6 +472,38 @@
  </footer>    
            
  <!-- ************* footer part ends *************  -->
+
+ <!-- contact slide section -->
+
+  <div class="cc-contactpop fixed">
+    <h3 class="text-center"><span>Contact Us</span></h3>
+    <div class="renseignement">
+      <i class="fa fa-times"></i>
+
+    </div>
+    <p>For quick assistance, call or whatsapp on <a href="tel:9166555888">+91-9166-555-888</a> (Mr. Harsh)</p>
+    <form action="email.php" method="post" onsubmit="return contactvalid()">
+      <div class="form-group">
+        <input type="text" name="name" id="name" placeholder="Your name"/>
+        <span class="text-danger" id="namemessage"></span>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" id="email" placeholder="E-mail"/>
+        <span class="text-danger" id="emailmessage"></span>
+      </div>
+      <div class="form-group">
+        <input type="text" name="phone" id="phone" placeholder="Phone number"/>
+        <span class="text-danger" id="phonemessage"></span>
+      </div>
+      <div class="form-group">
+        <textarea id="message" type="text" placeholder="Message"></textarea>
+        <span class="text-danger" id="querymessage"></span>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+</div>   
+
+      <!-- end of contact slide section -->
   
               
    
@@ -487,7 +519,7 @@
         delay:10,
         time:2000
     });
-    
+   
      
     mybutton=document.getElementById('scrollbutton');
     
@@ -500,6 +532,7 @@
         else{
             mybutton.style.display="none";
         }
+       
     }
     
     function scrollup(){
@@ -507,7 +540,63 @@
         document.documentElement.scrollTop= 0;
     }
     
-    </script>   
+    </script>  
+
+    <script type="text/javascript">
+            $( document ).ready(function() {
+                
+                // let's Hide Items
+                $( ".cc-contactpop form").hide();
+                $( ".cc-contactpop i").hide(); 
+                $( ".cc-contactpop p").hide();
+                
+                // Show on elements ".slideDown"
+                $( ".cc-contactpop" ).click(function() {
+                    $( ".cc-contactpop form").slideDown(500)
+                    $( ".cc-contactpop p").slideDown(500)
+                    $( ".cc-contactpop i").slideDown(500)
+                });
+                
+                // Close Hidden Part
+                $( ".cc-contactpop i" ).click(function() {
+                    $(this).slideUp(500)
+                        $( ".cc-contactpop p").slideUp(500)
+                        $( ".cc-contactpop form").slideUp(500)
+                    return false
+                });
+            
+            });
+        </script>
+
+        <script type="text/javascript">
+             function contactvalid(){
+                var name = document.getElementById('name').value;
+                var email = document.getElementById('email').value;
+                var phone = document.getElementById('phone').value;
+                var text = document.getElementById('message').value;
+
+                if(name==""){
+                    document.getElementById('namemessage').innerHTML = "*Please enter your name";
+                    return false;
+                }
+                if(email==""){
+                    document.getElementById('emailmessage').innerHTML = "*Please enter your email id";
+                    return false;
+                }
+                if(phone==""){
+                    document.getElementById('phonemessage').innerHTML = "*Please enter your mobile number";
+                    return false;
+                }
+                if(text==""){
+                    document.getElementById('querymessage').innerHTML = "*Please enter your query";
+                    return false;
+                }
+                else{
+                    alert("Your Query is Submitted Successfully");
+                } 
+             }
+        </script>
+     
     
 </body>
 </html>
